@@ -1,0 +1,59 @@
+newman
+
+hw4-helm
+
+→ Get users
+  GET http://arch.homework/users [200 OK, 433B, 213ms]
+  ✓  Status code is 200
+  ✓  Response is not empty array and first records field are valid
+
+→ Get user
+  GET http://arch.homework/users/1 [200 OK, 210B, 21ms]
+  ✓  Status code is 200
+  ✓  Response fields are valid
+
+→ Get not exist user
+  GET http://arch.homework/users/100500 [404 Not Found, 248B, 26ms]
+  ✓  Status code is 404
+
+→ Create user
+  POST http://arch.homework/users [200 OK, 212B, 67ms]
+  ✓  Status code is 200
+  ✓  Response fields are valid
+
+→ Update user
+  PUT http://arch.homework/users/5 [200 OK, 212B, 34ms]
+  ✓  Status code is 200
+  ✓  Response fields are valid
+
+→ Update not exist user
+  PUT http://arch.homework/user/100500 [404 Not Found, 336B, 19ms]
+  ✓  Status code is 404
+
+→ Delete user
+  DELETE http://arch.homework/users/2 [200 OK, 99B, 19ms]
+  ✓  Status code is 200
+
+→ Delete not exist user
+  DELETE http://arch.homework/user/100500 [404 Not Found, 336B, 56ms]
+  ✓  Status code is 404
+
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │                 8 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │                 8 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │                 0 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │                12 │                 0 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 572ms                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 808B (approx)                              │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 56ms [min: 19ms, max: 213ms, s.d.: 61ms] │
+└─────────────────────────────────────────────────────────────────┘

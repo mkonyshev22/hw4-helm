@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: liqui
+spec:
+  template:
+    metadata:
+      name: liqui
+    spec:
+      containers:
+        - name: liqui
+          image: mksikayo/otus-hw4-liqui
+          command: ["java", "-jar", "/app.jar"]
+          env:
+            - name: CONFIG_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_HOST
+            - name: CONFIG_DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_PORT
+            - name: CONFIG_DB_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_DB
+            - name: SECRETS_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRETS_DB_USER
+            - name: SECRETS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRETS_DB_PASSWORD
+      restartPolicy: Never
+

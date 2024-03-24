@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  CONFIG_DB_HOST: "my-release-postgresql"
+  CONFIG_DB_PORT: "5432"
+  CONFIG_DB_DB: "postgres"

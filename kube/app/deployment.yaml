@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-crud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-crud-app
+  template:
+    metadata:
+      name: user-crud-app
+      labels:
+        app: user-crud-app
+    spec:
+      containers:
+        - name: user-crud-app
+          image: mksikayo/otus-hw4-app
+          command: [ "java", "-jar", "/app.jar" ]
+          env:
+            - name: CONFIG_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_HOST
+            - name: CONFIG_DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_PORT
+            - name: CONFIG_DB_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: CONFIG_DB_DB
+            - name: SECRETS_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRETS_DB_USER
+            - name: SECRETS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRETS_DB_PASSWORD

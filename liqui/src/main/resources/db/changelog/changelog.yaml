@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      id: 20240323-create-user-table-schema
+      file: db/changelog/20240323-create-user-table-schema.sql
+  - include:
+      id: 20240323-fill-users-test-data.sql
+      file: db/changelog/20240323-fill-users-test-data.sql
