@@ -257,14 +257,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://arch.homework/user/100500",
+					"raw": "http://arch.homework/users/100500",
 					"protocol": "http",
 					"host": [
 						"arch",
 						"homework"
 					],
 					"path": [
-						"user",
+						"users",
 						"100500"
 					]
 				}
@@ -323,14 +323,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://arch.homework/user/100500",
+					"raw": "http://arch.homework/users/100500",
 					"protocol": "http",
 					"host": [
 						"arch",
 						"homework"
 					],
 					"path": [
-						"user",
+						"users",
 						"100500"
 					]
 				}
